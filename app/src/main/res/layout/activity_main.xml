@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scrollbars="vertical"
+    tools:context="me.goodnesskayode.curis.MainActivity">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+
+        <!--<fragment-->
+        <!--android:id="@+id/map"-->
+        <!--android:name="me.goodnesskayode.curis.RequestFragment"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--tools:layout="@layout/fragment_request" />-->
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/location"
+            android:drawablePadding="12dp"
+            android:hint="You are presently at Bamidele close, Lekki Phase 1 Gate, Lagos State"
+            android:paddingBottom="15dp"/>
+
+
+        <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
+            android:id="@+id/android_material_design_spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/hospital"
+            android:drawablePadding="@dimen/drawable_padding"
+            android:hint="Select Cause for Emergency"
+            android:paddingBottom="15dp"/>
+
+
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/btn_request"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="24dp"
+            android:padding="12dp"
+            android:text="Request Ambulance"/>
+
+    </LinearLayout>
+
+</ScrollView>
