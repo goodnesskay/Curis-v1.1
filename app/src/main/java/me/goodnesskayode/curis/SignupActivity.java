@@ -20,6 +20,8 @@ import android.widget.Toast;
 //import com.google.firebase.auth.FirebaseAuth;
 //import com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner;
 //
+import com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner;
+
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 
@@ -34,7 +36,7 @@ public class SignupActivity extends AppCompatActivity {
     @InjectView(R.id.input_name) EditText _nameText;
     @InjectView(R.id.input_email) EditText _emailText;
     @InjectView(R.id.input_password) EditText _passwordText;
-    @InjectView(R.id.android_material_design_spinner) MaterialBetterSpinner _role;
+    @InjectView(R.id.android_material_design_spinner)  MaterialBetterSpinner _role;
     @InjectView(R.id.btn_signup) Button _signupButton;
     @InjectView(R.id.link_login) TextView _loginLink;
 
