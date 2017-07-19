@@ -6,9 +6,9 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -16,7 +16,6 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner;
 
 
 import butterknife.ButterKnife;
@@ -24,16 +23,12 @@ import butterknife.InjectView;
 
 public class SignupActivity extends AppCompatActivity {
     private static final String TAG = "SignupActivity";
-    private Button userSignup;
-    private Button providerSignup;
     private FirebaseAuth auth;
-    //    private ProgressBar progressBar;
+    private ProgressBar progressBar;
 
-    @InjectView(R.id.input_name) EditText _nameText;
     @InjectView(R.id.input_email) EditText _emailText;
     @InjectView(R.id.input_password) EditText _passwordText;
-    @InjectView(R.id.android_material_design_spinner)  MaterialBetterSpinner _role;
-    @InjectView(R.id.btn_signup) Button _signupButton;
+    @InjectView(R.id.user_register_button) Button _signupButton;
     @InjectView(R.id.link_login) TextView _loginLink;
 
     @Override
@@ -70,13 +65,11 @@ public class SignupActivity extends AppCompatActivity {
         }
 
         _signupButton.setEnabled(false);
-//        progressBar = (ProgressBar) findViewById(R.id.progressBar);
-//        String name = _nameText.getText().toString();
+        progressBar = (ProgressBar) findViewById(R.id.progressBar);
         String email = _emailText.getText().toString();
         String password = _passwordText.getText().toString();
-//        String role = _role.getText().toString();
 
-//        progressBar.setVisibility(View.VISIBLE);
+        progressBar.setVisibility(View.VISIBLE);
 
         // TODO: Implement your own signup logic here.
         auth.createUserWithEmailAndPassword(email, password)
@@ -84,8 +77,7 @@ public class SignupActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         Toast.makeText(SignupActivity.this, "createUserWithEmail:onComplete:" + task.isSuccessful(), Toast.LENGTH_SHORT).show();
-                        //setUserSignup();
-//                        progressBar.setVisibility(View.GONE);
+                        progressBar.setVisibility(View.GONE);
                         // If sign in fails, display a message to the user. If sign in succeeds
                         // the auth state listener will be notified and logic to handle the
                         // signed in user can be handled in the listener.
@@ -109,16 +101,9 @@ public class SignupActivity extends AppCompatActivity {
     public boolean validate() {
         boolean valid = true;
 
-        String name = _nameText.getText().toString();
         String email = _emailText.getText().toString();
         String password = _passwordText.getText().toString();
 
-        if (name.isEmpty() || name.length() < 3) {
-            _nameText.setError("at least 3 characters");
-            valid = false;
-        } else {
-            _nameText.setError(null);
-        }
 
         if (email.isEmpty() || !android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             _emailText.setError("enter a valid email address");
@@ -139,20 +124,7 @@ public class SignupActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-//        progressBar.setVisibility(View.GONE);
-    }
-
-    public void setUserSignup()
-    {
-        userSignup = (Button) findViewById(R.id.btn_signup);
-        userSignup.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent user = new Intent(getApplicationContext(),MainActivity.class);
-                startActivity(user);
-                finish();
-            }
-        });
+        progressBar.setVisibility(View.GONE);
     }
 
 }
