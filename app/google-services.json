@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "852751303491",
+    "firebase_url": "https://curis-7c6fb.firebaseio.com",
+    "project_id": "curis-7c6fb",
+    "storage_bucket": "curis-7c6fb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:852751303491:android:b8a1ae2ad556d43c",
+        "android_client_info": {
+          "package_name": "me.goodnesskayode.curis"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "852751303491-di865s6jrd3rjvncmgki8slvptq6ak0v.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "me.goodnesskayode.curis",
+            "certificate_hash": "f593066bee96506f8a31e1b9d7dd4ef4901a2f0a"
+          }
+        },
+        {
+          "client_id": "852751303491-cphd078ecuqi0635s01oun2tunp87sgl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA2lRgT1Fxj-ftLfkadcN_PIMwnTd_jTn4"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "852751303491-cphd078ecuqi0635s01oun2tunp87sgl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
