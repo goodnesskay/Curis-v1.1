@@ -1,6 +1,5 @@
 package me.goodnesskayode.curis;
 
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -10,17 +9,15 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-//import com.google.android.gms.tasks.OnCompleteListener;
-//import com.google.android.gms.tasks.Task;
-//import com.google.firebase.auth.AuthResult;
-//import com.google.firebase.auth.FirebaseAuth;
-//import com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner;
-//
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 import com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner;
+
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
@@ -31,7 +28,6 @@ public class SignupActivity extends AppCompatActivity {
     private Button providerSignup;
     private FirebaseAuth auth;
     //    private ProgressBar progressBar;
-    String[] SPINNERLIST = {"Emergency Seeker", "Emergency Provider"};
 
     @InjectView(R.id.input_name) EditText _nameText;
     @InjectView(R.id.input_email) EditText _emailText;
@@ -47,12 +43,6 @@ public class SignupActivity extends AppCompatActivity {
         ButterKnife.inject(this);
 
         auth= FirebaseAuth.getInstance();
-
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_dropdown_item_1line, SPINNERLIST);
-        MaterialBetterSpinner materialDesignSpinner = (MaterialBetterSpinner)
-                findViewById(R.id.android_material_design_spinner);
-        materialDesignSpinner.setAdapter(arrayAdapter);
 
         _signupButton.setOnClickListener(new View.OnClickListener() {
             @Override
