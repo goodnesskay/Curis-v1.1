@@ -2,4 +2,6 @@
     <string name="app_name">Curis</string>
     <string name="email">Email</string>
     <string name="password">Password</string>
+    <string name="preferred_hospital">Preferred Hospital</string>
+    <string name="preferred_hospital_address">Preferred Hospital Address</string>
 </resources>
