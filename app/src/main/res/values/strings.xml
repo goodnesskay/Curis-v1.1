@@ -4,4 +4,5 @@
     <string name="password">Password</string>
     <string name="preferred_hospital">Preferred Hospital</string>
     <string name="preferred_hospital_address">Preferred Hospital Address</string>
+    <string name="different_locale"><u>input a different location</u></string>
 </resources>

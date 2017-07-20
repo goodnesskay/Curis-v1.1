@@ -3,8 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:scrollbars="vertical"
-    android:background="@drawable/bg_pattern_white"
+    android:fitsSystemWindows="true"
     tools:context="me.goodnesskayode.curis.MainActivity">
 
 
@@ -13,6 +14,27 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         >
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:minHeight="?attr/actionBarSize"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:titleTextColor="@android:color/white"
+            android:background="?attr/colorPrimary"
+            android:fitsSystemWindows="true">
+
+            <TextView
+                android:id="@+id/toolbar_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/app_name"
+                android:textColor="@android:color/white"
+                style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
+                android:layout_gravity="center"
+                />
+
+        </android.support.v7.widget.Toolbar>
 
         <!--<fragment-->
         <!--android:id="@+id/map"-->
@@ -23,32 +45,64 @@
 
 
         <TextView
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:drawableLeft="@drawable/location"
-            android:drawablePadding="12dp"
-            android:hint="You are presently at Bamidele close, Lekki Phase 1 Gate, Lagos State"
+            android:text="Destination:"
+            android:layout_gravity="center"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:padding="@dimen/padding"
             android:paddingBottom="15dp"/>
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="St. Nicolas Catholic Hospital,CMS Lagos State"
+            android:layout_gravity="center"
+            android:textAlignment="center"
+            android:padding="@dimen/padding"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:paddingBottom="15dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/different_locale"
+            android:padding="@dimen/padding"
+            android:layout_gravity="center"
+            android:textAlignment="center"
+            android:textSize="16sp"/>
 
         <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
             android:id="@+id/android_material_design_spinner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:padding="@dimen/padding"
             android:drawableLeft="@drawable/hospital"
             android:drawablePadding="@dimen/drawable_padding"
-            android:hint="Select Cause for Emergency"
-            android:paddingBottom="15dp"/>
+            android:hint="Number of Patients"/>
 
 
         <android.support.v7.widget.AppCompatButton
             android:id="@+id/btn_request"
-            android:layout_width="fill_parent"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:drawableRight="@drawable/login"
             android:layout_marginTop="24dp"
             android:layout_marginBottom="24dp"
             android:padding="12dp"
             android:text="Request Ambulance"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Your request will be sent to the nearest ambulance"
+            android:layout_gravity="center"
+            android:padding="@dimen/padding"
+            android:textAlignment="center"
+            android:textSize="16sp"/>
 
     </LinearLayout>
 
