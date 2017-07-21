@@ -36,13 +36,13 @@
 
         </android.support.v7.widget.Toolbar>
 
-        <!--<fragment-->
-        <!--android:id="@+id/map"-->
-        <!--android:name="me.goodnesskayode.curis.RequestFragment"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="match_parent"-->
-        <!--tools:layout="@layout/fragment_request" />-->
 
+        <fragment
+            android:id="@+id/map"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            tools:context="me.goodnesskayode.curis.MainActivity"/>
 
         <TextView
             android:layout_width="wrap_content"
