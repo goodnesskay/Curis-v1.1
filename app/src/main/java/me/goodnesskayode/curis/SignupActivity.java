@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,10 +24,12 @@ import butterknife.InjectView;
 public class SignupActivity extends AppCompatActivity {
     private static final String TAG = "SignupActivity";
     private FirebaseAuth auth;
+    ProgressBar progressBar;
 
     @InjectView(R.id.input_email) EditText _emailText;
     @InjectView(R.id.input_password) EditText _passwordText;
     @InjectView(R.id.user_register_button) Button _signupButton;
+    @InjectView(R.id.hospital_register_button) Button _signupHospitalButton;
     @InjectView(R.id.link_login) TextView _loginLink;
 
     @Override
@@ -36,11 +39,19 @@ public class SignupActivity extends AppCompatActivity {
         ButterKnife.inject(this);
 
         auth= FirebaseAuth.getInstance();
+        progressBar = (ProgressBar) findViewById(R.id.progressBar);
 
         _signupButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 signup();
+            }
+        });
+
+        _signupHospitalButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                signupHospital();
             }
         });
 
@@ -72,15 +83,13 @@ public class SignupActivity extends AppCompatActivity {
                 .addOnCompleteListener(SignupActivity.this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        Toast.makeText(SignupActivity.this, "createUserWithEmail:onComplete:" + task.isSuccessful(), Toast.LENGTH_SHORT).show();
-                        // If sign in fails, display a message to the user. If sign in succeeds
-                        // the auth state listener will be notified and logic to handle the
-                        // signed in user can be handled in the listener.
+                        Toast.makeText(SignupActivity.this, "Credentials Valid" + task.isSuccessful(), Toast.LENGTH_SHORT).show();
+                        progressBar.setVisibility(View.GONE);
                         if (!task.isSuccessful()) {
                             Toast.makeText(SignupActivity.this, "Authentication failed." + task.getException(),
                                     Toast.LENGTH_SHORT).show();
                         } else {
-                            startActivity(new Intent(SignupActivity.this, RequestActivity.class));
+                            startActivity(new Intent(SignupActivity.this, MainActivity.class));
                             finish();
                         }
                     }
@@ -88,8 +97,40 @@ public class SignupActivity extends AppCompatActivity {
 
     }
 
+    public void signupHospital() {
+        Log.d(TAG, "Signup");
+
+        if (!validate()) {
+            onSignupFailed();
+            return;
+        }
+
+        _signupButton.setEnabled(false);
+        String email = _emailText.getText().toString();
+        String password = _passwordText.getText().toString();
+
+
+        // TODO: Implement your own signup logic here.
+        auth.createUserWithEmailAndPassword(email, password)
+                .addOnCompleteListener(SignupActivity.this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        Toast.makeText(SignupActivity.this, "Hospital Signed up. Work in progress" + task.isSuccessful(), Toast.LENGTH_SHORT).show();
+//                        progressBar.setVisibility(View.GONE);
+//                        if (!task.isSuccessful()) {
+//                            Toast.makeText(SignupActivity.this, "Authentication failed." + task.getException(),
+//                                    Toast.LENGTH_SHORT).show();
+//                        } else {
+//                            startActivity(new Intent(SignupActivity.this, RequestActivity.class));
+//                            finish();
+//                        }
+                    }
+                });
+
+    }
+
     public void onSignupFailed() {
-        Toast.makeText(getBaseContext(), "Login failed", Toast.LENGTH_LONG).show();
+        Toast.makeText(getBaseContext(), "Authentication issue: Check your credentials well", Toast.LENGTH_LONG).show();
         _signupButton.setEnabled(true);
     }
 
@@ -114,6 +155,12 @@ public class SignupActivity extends AppCompatActivity {
             _passwordText.setError(null);
         }
         return valid;
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        progressBar.setVisibility(View.GONE);
     }
 
 

@@ -43,9 +43,9 @@ class RecyclerviewAdapter extends RecyclerView.Adapter<RecyclerviewAdapter.MyHol
 
         public MyHolder(View itemView) {
             super(itemView);
-            vname = (TextView) itemView.findViewById(R.id.vname);
-            vemail = (TextView) itemView.findViewById(R.id.vemail);
-            vaddress = (TextView) itemView.findViewById(R.id.vaddress);
+//            vname = (TextView) itemView.findViewById(R.id.vname);
+//            vemail = (TextView) itemView.findViewById(R.id.vemail);
+//            vaddress = (TextView) itemView.findViewById(R.id.vaddress);
 
         }
     }
