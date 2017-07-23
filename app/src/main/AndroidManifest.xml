@@ -34,7 +34,8 @@
         <activity android:name=".LoginActivity" />
         <activity android:name=".ProfileActivity" />
         <activity android:name=".RequestActivity" />
-        <activity android:name=".SingleRequestActivity"></activity>
+        <activity android:name=".SingleRequestActivity" />
+        <activity android:name=".SuccessActivity"></activity>
     </application>
 
 </manifest>
