@@ -30,12 +30,21 @@
             </intent-filter>
         </activity>
         <activity android:name=".MainActivity" />
-        <activity android:name=".SignupActivity" />
-        <activity android:name=".LoginActivity" />
-        <activity android:name=".ProfileActivity" />
-        <activity android:name=".RequestActivity" />
+        <activity
+            android:name=".SignupActivity"
+            android:windowSoftInputMode="stateVisible|adjustPan" />
+        <activity
+            android:name=".LoginActivity"
+            android:windowSoftInputMode="stateVisible|adjustPan" />
+        <activity
+            android:name=".ProfileActivity"
+            android:windowSoftInputMode="stateVisible|adjustPan" />
+        <activity
+            android:name=".RequestActivity"
+            android:windowSoftInputMode="stateVisible|adjustPan" />
         <activity android:name=".SingleRequestActivity" />
-        <activity android:name=".SuccessActivity"></activity>
+        <activity android:name=".SuccessActivity" />
+        <activity android:name=".HospitalActivity"></activity>
     </application>
 
 </manifest>

@@ -83,7 +83,7 @@ public class SignupActivity extends AppCompatActivity {
                 .addOnCompleteListener(SignupActivity.this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        Toast.makeText(SignupActivity.this, "Credentials Valid" + task.isSuccessful(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(SignupActivity.this, "User signed up... Please Wait." + task.isSuccessful(), Toast.LENGTH_SHORT).show();
                         progressBar.setVisibility(View.GONE);
                         if (!task.isSuccessful()) {
                             Toast.makeText(SignupActivity.this, "Authentication failed." + task.getException(),
@@ -115,15 +115,15 @@ public class SignupActivity extends AppCompatActivity {
                 .addOnCompleteListener(SignupActivity.this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        Toast.makeText(SignupActivity.this, "Hospital Signed up. Work in progress" + task.isSuccessful(), Toast.LENGTH_SHORT).show();
-//                        progressBar.setVisibility(View.GONE);
-//                        if (!task.isSuccessful()) {
-//                            Toast.makeText(SignupActivity.this, "Authentication failed." + task.getException(),
-//                                    Toast.LENGTH_SHORT).show();
-//                        } else {
-//                            startActivity(new Intent(SignupActivity.this, RequestActivity.class));
-//                            finish();
-//                        }
+                        Toast.makeText(SignupActivity.this, "Hospital Signed up.. Please wait" + task.isSuccessful(), Toast.LENGTH_SHORT).show();
+                        progressBar.setVisibility(View.GONE);
+                        if (!task.isSuccessful()) {
+                            Toast.makeText(SignupActivity.this, "Authentication failed." + task.getException(),
+                                    Toast.LENGTH_SHORT).show();
+                        } else {
+                            startActivity(new Intent(SignupActivity.this, RequestActivity.class));
+                            finish();
+                        }
                     }
                 });
 

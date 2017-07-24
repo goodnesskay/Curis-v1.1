@@ -91,16 +91,13 @@
         android:gravity="end"
         >
         <Button
-            android:id="@+id/view_map"
+            android:id="@+id/view_trip_details"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="View on Map"
-            />
-        <Button
-            android:id="@+id/cancel_trip"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Cancel Trip"
+            android:text="View Trip Details"
+            android:textColor="@color/white"
+            android:background="@drawable/blue_button"
+            android:padding="16dp"
             />
     </LinearLayout>
 

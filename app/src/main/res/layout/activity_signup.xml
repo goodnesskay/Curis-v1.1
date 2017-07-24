@@ -11,7 +11,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="@dimen/padding"
         >
 
 
@@ -23,6 +22,7 @@
             android:layout_gravity="center"
             android:layout_marginTop="@dimen/margin_top"
             android:layout_marginBottom="@dimen/margin_bottom"
+            android:padding="@dimen/padding"
             />
 
         <EditText
@@ -30,10 +30,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textEmailAddress"
-            android:drawableLeft="@drawable/white_email"
-            android:drawablePadding="@dimen/drawable_padding"
             android:hint="@string/email"
             android:paddingTop="@dimen/padding"
+            android:layout_marginBottom="10dp"
+            android:padding="@dimen/padding"
             />
 
         <EditText
@@ -42,24 +42,37 @@
             android:layout_height="wrap_content"
             android:inputType="textPassword"
             android:hint="@string/password"
-            android:drawableLeft="@drawable/white_password"
-            android:drawablePadding="@dimen/drawable_padding"
             android:paddingTop="@dimen/padding"
+            android:layout_marginBottom="20dp"
+            android:padding="@dimen/padding"
             />
 
         <Button
             android:id="@+id/user_register_button"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:drawableRight="@drawable/login"
-            android:text="@string/proceed"/>
+            android:drawablePadding="-75dp"
+            android:background="@drawable/blue_button"
+            android:textColor="@color/white"
+            android:minWidth="300dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="12dp"
+            android:text="@string/proceed"
+            />
 
         <Button
             android:id="@+id/hospital_register_button"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:drawableRight="@drawable/login"
-            android:text="For Hospital"/>
+            android:drawablePadding="-75dp"
+            android:text="For Hospital"
+            android:background="@drawable/red_button"
+            android:textColor="@color/white"
+            android:minWidth="300dp"
+            android:layout_gravity="center"
+            />
 
         <TextView
             android:id="@+id/link_login"
@@ -71,6 +84,18 @@
             android:textSize="18dp"
             android:paddingTop="@dimen/padding"
             />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/splash_below"
+                android:layout_alignParentBottom="true"
+                android:adjustViewBounds="true"/>
+        </RelativeLayout>
 
         <ProgressBar
             android:id="@+id/progressBar"

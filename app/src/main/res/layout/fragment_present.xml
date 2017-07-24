@@ -96,7 +96,7 @@
             android:layout_height="wrap_content"
             android:text="View on Map"
             android:textColor="@color/white"
-            android:background="@color/blue_button"
+            android:background="@drawable/blue_button"
             android:layout_marginRight="20dp"
             android:padding="16dp"
             />
@@ -106,7 +106,7 @@
             android:layout_height="wrap_content"
             android:text="Cancel Trip"
             android:textColor="@color/white"
-            android:background="@color/blue_button"
+            android:background="@drawable/blue_button"
             android:padding="16dp"
             />
     </LinearLayout>

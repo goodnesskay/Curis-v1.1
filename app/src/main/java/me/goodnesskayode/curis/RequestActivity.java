@@ -1,5 +1,6 @@
 package me.goodnesskayode.curis;
 
+import android.content.Intent;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
@@ -157,7 +158,8 @@ public class RequestActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
-            return true;
+            Intent hospitalProfile = new Intent(getApplicationContext(),HospitalActivity.class);
+            startActivity(hospitalProfile);
         }
 
         return super.onOptionsItemSelected(item);

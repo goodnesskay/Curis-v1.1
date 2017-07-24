@@ -47,21 +47,30 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:drawableLeft="@drawable/location"
-            android:text="Destination:"
+            android:text="@string/destination"
             android:layout_gravity="center"
-            android:textSize="30sp"
-            android:layout_marginTop="16dp"
+            android:textSize="20sp"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="7dp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="St. Nicolas Catholic Hospital"
+            android:layout_gravity="center"
+            android:textAlignment="center"
+            android:textColor="@color/blue_button"
+            android:textSize="24sp"
             android:textStyle="bold"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="St. Nicolas Catholic Hospital,CMS Lagos State"
+            android:text="CMS, Lagos State"
             android:layout_gravity="center"
             android:textAlignment="center"
-            android:textSize="20sp"
-            android:textStyle="bold"/>
+            android:textSize="20sp"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -69,17 +78,15 @@
             android:text="@string/different_locale"
             android:layout_gravity="center"
             android:textAlignment="center"
-            android:layout_marginTop="12dp"
-            android:textSize="16sp"/>
+            android:layout_marginTop="10dp"
+            android:textSize="12sp"/>
 
         <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
             android:id="@+id/android_material_design_spinner"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="16dp"
-            android:drawableLeft="@drawable/hospital"
-            android:drawablePadding="@dimen/drawable_padding"
+            android:layout_marginTop="10dp"
             android:hint="Number of Patients"/>
 
 
@@ -88,11 +95,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:drawableRight="@drawable/login"
-            android:layout_marginTop="20dp"
-            android:minWidth="250dp"
+            android:layout_marginTop="10dp"
+            android:minWidth="300dp"
             android:layout_gravity="center"
             android:text="Request Ambulance"
-            android:textColor="@color/colorPrimary"/>
+            android:textColor="@color/white"
+            android:background="@drawable/red_button"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -100,9 +108,9 @@
             android:text="Your request will be sent to the nearest ambulance"
             android:layout_gravity="center"
             android:textAlignment="center"
-            android:layout_marginTop="16dp"
-            android:textSize="16sp"/>
-
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="12dp"
+            android:textSize="12sp"/>
     </LinearLayout>
 
 </ScrollView>
