@@ -16,6 +16,9 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 
 import butterknife.ButterKnife;
@@ -24,6 +27,10 @@ import butterknife.InjectView;
 public class SignupActivity extends AppCompatActivity {
     private static final String TAG = "SignupActivity";
     private FirebaseAuth auth;
+    private FirebaseDatabase userDb;
+    private DatabaseReference userRef;
+    public String email;
+    public String password;
     ProgressBar progressBar;
 
     @InjectView(R.id.input_email) EditText _emailText;
@@ -38,8 +45,11 @@ public class SignupActivity extends AppCompatActivity {
         setContentView(R.layout.activity_signup);
         ButterKnife.inject(this);
 
-        auth= FirebaseAuth.getInstance();
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
+        auth= FirebaseAuth.getInstance();
+        userDb= FirebaseDatabase.getInstance();
+        userRef= userDb.getReference("users");
+
 
         _signupButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -74,8 +84,8 @@ public class SignupActivity extends AppCompatActivity {
         }
 
         _signupButton.setEnabled(false);
-        String email = _emailText.getText().toString();
-        String password = _passwordText.getText().toString();
+        email = _emailText.getText().toString();
+        password = _passwordText.getText().toString();
 
 
         // TODO: Implement your own signup logic here.
@@ -89,6 +99,10 @@ public class SignupActivity extends AppCompatActivity {
                             Toast.makeText(SignupActivity.this, "Authentication failed." + task.getException(),
                                     Toast.LENGTH_SHORT).show();
                         } else {
+                            FirebaseUser authUser = FirebaseAuth.getInstance().getCurrentUser();
+                            Userdetails user = new Userdetails(null,null,email,null,null,null,null,null,null,1);
+                            String userId= authUser.getUid();
+                            userRef.child(userId).setValue(user);
                             startActivity(new Intent(SignupActivity.this, MainActivity.class));
                             finish();
                         }
