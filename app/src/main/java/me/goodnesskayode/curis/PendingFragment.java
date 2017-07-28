@@ -21,14 +21,14 @@ public class PendingFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View rootView= inflater.inflate(R.layout.fragment_pending, container, false);
-        Button accept=(Button) rootView.findViewById(R.id.accept_trip);
-        accept.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent accept = new Intent(getActivity(),SingleRequestActivity.class);
-                startActivity(accept);
-            }
-        });
+//        Button accept=(Button) rootView.findViewById(R.id.accept_trip);
+//        accept.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent accept = new Intent(getActivity(),SingleRequestActivity.class);
+//                startActivity(accept);
+//            }
+//        });
         return rootView;
     }
 

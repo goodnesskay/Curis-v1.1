@@ -36,6 +36,7 @@ public class ProfileActivity extends AppCompatActivity {
     public EditText _workAddress;
     public Button _save;
 
+
     FirebaseUser authUser = FirebaseAuth.getInstance().getCurrentUser();
     private FirebaseDatabase userDb;
     private DatabaseReference userRef;
@@ -67,7 +68,7 @@ public class ProfileActivity extends AppCompatActivity {
         _save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                getUserDetails();
+                updateUserDetails();
             }
         });
 
@@ -112,15 +113,64 @@ public class ProfileActivity extends AppCompatActivity {
         return true;
     }
 
-    public boolean getUserDetails()
+    public boolean updateUserDetails()
     {
-        String name= _name.getText().toString();
-        String hospital= _hospital.getText().toString();
-        String hospitalAddress= _hospitalAddress.getText().toString();
-        String mobileNumber= _mobileNumber.getText().toString();
-        String nextOfKin= _nextOfKin.getText().toString();
-        String nextOfKinMobileNumber= _nextOfKinMobileNumber.getText().toString();
-        String workAddress= _workAddress.getText().toString();
+         String name= _name.getText().toString();
+         String hospital= _hospital.getText().toString();
+         String hospitalAddress= _hospitalAddress.getText().toString();
+         String mobileNumber= _mobileNumber.getText().toString();
+         String nextOfKin= _nextOfKin.getText().toString();
+         String nextOfKinMobileNumber= _nextOfKinMobileNumber.getText().toString();
+         String workAddress= _workAddress.getText().toString();
+
+        if (name.isEmpty() || name.length() < 3)
+        {
+            _name.setError("Name cannot be less than 3 letters");
+        } else {
+            _name.setError(null);
+        }
+
+        if (hospital.isEmpty() || hospital.length() < 3)
+        {
+            _hospital.setError("Enter your preferred hospital");
+        } else {
+            _hospital.setError(null);
+        }
+
+        if (hospitalAddress.isEmpty() || hospitalAddress.length() < 3)
+        {
+            _hospitalAddress.setError("Hospital address field cannot be left empty");
+        } else {
+            _hospitalAddress.setError(null);
+        }
+
+        if (mobileNumber.isEmpty() || mobileNumber.length() < 11)
+        {
+            _mobileNumber.setError("Mobile Number cannot be less than 11 numbers");
+        } else {
+            _mobileNumber.setError(null);
+        }
+
+        if (nextOfKin.isEmpty() || nextOfKin.length() < 3)
+        {
+            _nextOfKin.setError("Next of kin field cannot be left empty");
+        } else {
+            _nextOfKin.setError(null);
+        }
+
+        if (nextOfKinMobileNumber.isEmpty() || nextOfKinMobileNumber.length() < 11)
+        {
+            _nextOfKinMobileNumber.setError("Next of Kin Mobile Number cannot be less than 11 numbers");
+        } else {
+            _nextOfKinMobileNumber.setError(null);
+        }
+
+        if (workAddress.isEmpty() || workAddress.length() < 3)
+        {
+            _workAddress.setError("Work address field cannot be left empty");
+        } else {
+            _workAddress.setError(null);
+        }
 
         if (authUser != null) {
             // User is signed in
@@ -138,9 +188,6 @@ public class ProfileActivity extends AppCompatActivity {
             Userdetails user = new Userdetails(uid,getName,email,getMobileNumber,
                                 getHospital,getHospitalAddress,getNextOfKin,
                                 getNextOfKinMobileNumber,getWorkAddress,getStatus);
-
-//            String key= userRef.child("users").getKey();
-//            String key= "-Kpzt4xB5OtX6eq4EOYA";
 
             userRef.child(uid).setValue(user);
 

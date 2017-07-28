@@ -8,13 +8,14 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import java.util.List;
+import me.goodnesskayode.curis.models.Request;
 
 class RecyclerviewAdapter extends RecyclerView.Adapter<RecyclerviewAdapter.MyHolder>{
 
-    List<Listdata> listdata;
+    List<Request> requestdata;
 
-    public RecyclerviewAdapter(List<Listdata> listdata) {
-        this.listdata = listdata;
+    public RecyclerviewAdapter(List<Request> requestdata) {
+        this.requestdata = requestdata;
     }
 
     @Override
@@ -26,27 +27,28 @@ class RecyclerviewAdapter extends RecyclerView.Adapter<RecyclerviewAdapter.MyHol
     }
 
     public void onBindViewHolder(MyHolder holder, int position) {
-        Listdata data = listdata.get(position);
-        holder.vname.setText(data.getName());
-        holder.vemail.setText(data.getEmail());
-        holder.vaddress.setText(data.getAddress());
+        Request data = requestdata.get(position);
+        holder.creatorName.setText(data.getRequestCreatorName());
+        holder.creatorAddress.setText(data.getRequestCreatorAddress());
+        holder.creatorDestination.setText(data.getRequestCreatorDestination());
+        holder.patientsNumber.setText(data.getNumberOfPatients());
     }
 
     @Override
     public int getItemCount() {
-        return listdata.size();
+        return requestdata.size();
     }
 
 
     class MyHolder extends RecyclerView.ViewHolder{
-        TextView vname , vaddress,vemail;
+        TextView creatorName,creatorAddress,creatorDestination,patientsNumber;
 
         public MyHolder(View itemView) {
             super(itemView);
-//            vname = (TextView) itemView.findViewById(R.id.vname);
-//            vemail = (TextView) itemView.findViewById(R.id.vemail);
-//            vaddress = (TextView) itemView.findViewById(R.id.vaddress);
-
+            creatorName = (TextView) itemView.findViewById(R.id.name);
+            creatorAddress= (TextView) itemView.findViewById(R.id.address);
+            creatorDestination = (TextView) itemView.findViewById(R.id.destination);
+            patientsNumber = (TextView) itemView.findViewById(R.id.patients);
         }
     }
 
