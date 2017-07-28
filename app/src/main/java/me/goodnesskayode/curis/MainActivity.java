@@ -32,7 +32,11 @@ import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner;
+
+import me.goodnesskayode.curis.models.Request;
 
 public class MainActivity extends AppCompatActivity implements OnMapReadyCallback,
         GoogleApiClient.ConnectionCallbacks,
@@ -55,10 +59,16 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
     private Location mLastKnownLocation;
 
+    private FirebaseDatabase requestDb;
+    private DatabaseReference requestRef;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        requestDb= FirebaseDatabase.getInstance();
+        requestRef= requestDb.getReference("requests");
 
         if (savedInstanceState != null) {
             //mCurrentLocation = savedInstanceState.getParcelable(KEY_LOCATION);
@@ -96,8 +106,13 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         request.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent request = new Intent(getApplicationContext(), SuccessActivity.class);
-                startActivity(request);
+                Request request = new Request("Tayo Obalola","any",mLastKnownLocation.getLatitude() + mLastKnownLocation.getLongitude(),
+                        "13344566666677","4",1);
+
+            String key= requestRef.push().getKey();
+            requestRef.child(key).setValue(request);
+                Intent requestV = new Intent(getApplicationContext(), SuccessActivity.class);
+                startActivity(requestV);
             }
         });
     }

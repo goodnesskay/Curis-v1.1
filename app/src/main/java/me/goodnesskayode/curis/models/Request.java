@@ -5,20 +5,21 @@ public class Request {
 
     private String requestCreatorName;
     private String requestCreatorAddress;
-    private String requestCreatorDestination;
+    private Double requestCreatorDestination;
     private String requestCreatorUid;
     private String numberOfPatients;
     private int status;
 
     public Request(){}
 
-    public Request(String requestCreatorName,String requestCreatorAddress, String requestCreatorDestination,
+    public Request(String requestCreatorName,String requestCreatorAddress, Double requestCreatorDestination,
                    String requestCreatorUid, String numberOfPatients, int status)
     {
         this.requestCreatorName=requestCreatorName;
         this.requestCreatorAddress=requestCreatorAddress;
         this.requestCreatorDestination=requestCreatorDestination;
         this.requestCreatorUid=requestCreatorUid;
+        this.numberOfPatients=numberOfPatients;
         this.status=status;
     }
 
@@ -38,11 +39,11 @@ public class Request {
         this.requestCreatorAddress = requestCreatorAddress;
     }
 
-    public void setRequestCreatorDestination(String requestCreatorDestination) {
+    public void setRequestCreatorDestination(Double requestCreatorDestination) {
         this.requestCreatorDestination = requestCreatorDestination;
     }
 
-    public String getRequestCreatorDestination() {
+    public Double getRequestCreatorDestination() {
         return requestCreatorDestination;
     }
 

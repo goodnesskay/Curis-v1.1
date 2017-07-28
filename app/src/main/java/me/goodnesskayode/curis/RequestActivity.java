@@ -1,42 +1,22 @@
 package me.goodnesskayode.curis;
 
 import android.content.Intent;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
-import me.goodnesskayode.curis.models.Request;
-
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import me.goodnesskayode.curis.models.Request;
 
 public class RequestActivity extends AppCompatActivity {
-
-    FirebaseDatabase database;
-    DatabaseReference myRef;
-    List<Request> list;
-    RecyclerView recyclerview;
 
     private SectionsPagerAdapter mSectionsPagerAdapter;
     private ViewPager mViewPager;
@@ -60,42 +40,6 @@ public class RequestActivity extends AppCompatActivity {
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
-
-
-
-        recyclerview = (RecyclerView) findViewById(R.id.rview);
-        database = FirebaseDatabase.getInstance();
-        myRef = database.getReference("requests");
-
-                myRef.addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(DataSnapshot dataSnapshot) {
-                        list = new ArrayList<>();
-                        // StringBuffer stringbuffer = new StringBuffer();
-                        for(DataSnapshot dataSnapshot1 :dataSnapshot.getChildren()){
-
-                            Request requests= dataSnapshot1.getValue(Request.class);
-                            String creatorName=requests.getRequestCreatorName();
-                            String creatorAddress=requests.getRequestCreatorAddress();
-                            String creatorDestination=requests.getRequestCreatorDestination();
-                            // Toast.makeText(MainActivity.this,""+name,Toast.LENGTH_LONG).show();
-
-                        }
-
-                        RecyclerviewAdapter recycler = new RecyclerviewAdapter(list);
-                        RecyclerView.LayoutManager layoutmanager = new LinearLayoutManager(RequestActivity.this);
-                        recyclerview.setLayoutManager(layoutmanager);
-                        recyclerview.setItemAnimator( new DefaultItemAnimator());
-                        recyclerview.setAdapter(recycler);
-
-                    }
-
-                    @Override
-                    public void onCancelled(DatabaseError error) {
-                        // Failed to read value
-                        //  Log.w(TAG, "Failed to read value.", error.toException());
-                    }
-                });
 
     }
 

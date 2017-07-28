@@ -63,7 +63,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onStart();
         // Check if user is signed in (non-null) and update UI accordingly.
         FirebaseUser currentUser = auth.getCurrentUser();
-        Intent user = new Intent(getApplicationContext(),MainActivity.class);
+        Intent user = new Intent(getApplicationContext(),RequestActivity.class);
         startActivity(user);
     }
 

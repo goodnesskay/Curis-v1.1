@@ -30,7 +30,7 @@ class RecyclerviewAdapter extends RecyclerView.Adapter<RecyclerviewAdapter.MyHol
         Request data = requestdata.get(position);
         holder.creatorName.setText(data.getRequestCreatorName());
         holder.creatorAddress.setText(data.getRequestCreatorAddress());
-        holder.creatorDestination.setText(data.getRequestCreatorDestination());
+        holder.creatorDestination.setText(data.getRequestCreatorDestination().toString());
         holder.patientsNumber.setText(data.getNumberOfPatients());
     }
 
